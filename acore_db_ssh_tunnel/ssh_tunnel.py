@@ -40,7 +40,7 @@ def create_ssh_tunnel(
     db_port: int,
     jump_host_username: str,
     jump_host_public_ip: str,
-    verbose: bool = False,
+    verbose: bool = True,
     print_func: T.Callable = print,
 ):
     """
@@ -129,7 +129,7 @@ def list_ssh_tunnel(
 
 def kill_ssh_tunnel(
     path_pem_file: str,
-    verbose: bool = False,
+    verbose: bool = True,
     print_func: T.Callable = print,
 ):
     """
@@ -164,7 +164,7 @@ def test_ssh_tunnel(
     db_name: str,
     timeout: int = 5,
     sql: str = "SELECT * FROM acore_auth.realmlist LIMIT 1;",  # you can also use "SELECT 1;"
-    verbose: bool = False,
+    verbose: bool = True,
     print_func: T.Callable = print,
 ) -> bool:
     """
