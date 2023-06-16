@@ -24,7 +24,7 @@ Reference:
     本模块不考虑用一个 pem 秘钥开启多个 SSH Tunnel 连接到不同跳板机的情况. 我们假设同一时间
     一个秘钥只能创建一个 SSH Tunnel.
 """
-
+import sys
 import typing as T
 import subprocess
 from pathlib import Path
@@ -68,13 +68,28 @@ def create_ssh_tunnel(
         f"{jump_host_username}@{jump_host_public_ip}",
         "-v",
     ]
+    ssh_cmd = " ".join(args)
     if verbose:
-        ssh_cmd = " ".join(args)
         print_func(f"Open ssh tunnel by running the following command:")
-        print_func("")
         print_func(f"  {ssh_cmd}")
-    subprocess.run(args)
-    return args
+
+    res = subprocess.run(args)
+    if res.returncode == 0:
+        print_func("SSH Tunnel created successfully.")
+        return
+
+    # something wrong, let's check if you have to do it in terminal
+    res = subprocess.run(args, capture_output=True)
+    error_message = res.stderr.decode("utf-8")
+    error_keyword = "can't open /dev/tty: Device not configured"
+    if error_keyword in error_message:
+        print_func(
+            "You may need to run this script in terminal, NOT in Python IDE. "
+            "Enter the following command in terminal to create SSH tunnel: "
+        )
+        print_func(f"  {ssh_cmd}")
+    else:
+        print_func("Failed to create SSH Tunnel.")
 
 
 def list_ssh_tunnel_pid(path_pem_file) -> T.List[str]:
