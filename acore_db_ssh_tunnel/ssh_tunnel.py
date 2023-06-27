@@ -92,7 +92,9 @@ def create_ssh_tunnel(
         print_func("Failed to create SSH Tunnel.")
 
 
-def list_ssh_tunnel_pid(path_pem_file) -> T.List[str]:
+def list_ssh_tunnel_pid(
+    path_pem_file,
+) -> T.List[str]:
     """
     List the PID of SSH Tunnel processes.
 
@@ -118,7 +120,7 @@ def list_ssh_tunnel_pid(path_pem_file) -> T.List[str]:
 
 
 def list_ssh_tunnel(
-    path_pem_file: str,
+    path_pem_file,
     print_func: T.Callable = print,
 ):
     """
@@ -147,7 +149,7 @@ def list_ssh_tunnel(
 
 
 def kill_ssh_tunnel(
-    path_pem_file: str,
+    path_pem_file,
     verbose: bool = True,
     print_func: T.Callable = print,
 ):
