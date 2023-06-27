@@ -11,6 +11,7 @@ def test():
     _ = api.list_ssh_tunnel
     _ = api.test_ssh_tunnel
     _ = api.kill_ssh_tunnel
+    _ = api.create_engine
 
 
 if __name__ == "__main__":
