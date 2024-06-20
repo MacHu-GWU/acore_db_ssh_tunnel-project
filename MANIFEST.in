@@ -8,3 +8,5 @@ include *.txt
 include *.rst
 exclude *.pyc
 exclude *.pyo
+exclude acore_db_ssh_tunnel/docs/**
+exclude acore_db_ssh_tunnel/tests/**

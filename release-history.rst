@@ -15,6 +15,19 @@ x.y.z (Backlog)
 **Miscellaneous**
 
 
+0.1.4 (2024-06-20)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Features and Improvements**
+
+**Minor Improvements**
+
+- Add support for Python3.11, 3.12
+
+**Miscellaneous**
+
+- Use ``cookiecutter-pyproject@v4`` code skeleton.
+
+
 0.1.3 (2023-06-27)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **Minor Improvements**
